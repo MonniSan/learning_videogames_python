@@ -1,8 +1,8 @@
 print("Hello Adventurer")
 name = input ('How should I call you?: ')
-print ("Welcome to the dungeon, " + name)
+print ("Welcome to the dungeon, " + name + "!")
 race = input("What is your race? 1.elf 2.human 3.orc 4.wiz:")
-print (f"Thanks for that, {name} of race {race}")
+print (f"Thanks for that, {name} of race {race}!")
 
 """ Comentario largo
 Config. arma 
