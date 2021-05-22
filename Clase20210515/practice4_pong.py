@@ -66,7 +66,6 @@ while i > 0:
     # for i in range(int(by),HEIGHT):
     #     print(" ")
     # print("-------------------")
-
     sleep(0.1)
 print("**********************************************")
 print("en este demo no pierde ningun jugador")

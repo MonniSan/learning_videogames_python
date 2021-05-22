@@ -22,42 +22,30 @@ print("Tu ex toxico y acosador intenta atacarte con sus falsas promesas de amor,
   \n de tu vida. Tienes 3 oportunidades con tiros acertivos para derrotar a tu ex.")
 
 WIDTH = 5
-HEIGHT = 10
-
 #coordenas del jugador 
-player_x = WIDTH/2
-player_y = 0
+def dogame(opt):
+  player_x = float(input("Tiro 1 vx:"))
+  player_y = float(input("Tiro 1 vy:"))
 
 
 #coordenas del enemigo ex porque todos odiamos a nuestros ex 
 ex = randrange(0,WIDTH,1)
+print("ex:" + str(ex))
 ey = 0
-evx = ex + 1 #talvez esto no va 
 
 #coordenadas iniciales del disparo y velocidad 
-bullet_x = player_x
-bullet_y = player_y
+dx = (player_y/9.81)*2*player_x
 
 #distancia entre tu y el enemigo
-distance_x = int(abs(player_x-ex))
-
-def atack (vx,distancia):
-  velocity = vx
-  return velocity
-
-
-
-if (distance_x == vx):
+distance_x = int(abs(ex-dx))
+if (distance_x < 3):
   print ("Has ganado y tu ex jamas te molestará de nuevo")
 else:
-  print ("No te preocupes tienes otra oprtunidad")
-
-if (distance_x == vx):
-  print ("Has ganado y tu ex jamas te molestará de nuevo")
+  if(opt == 2):
+    print("Ups! Tu ex a logrado conquistarte de nuevo.. AMIG@ DATE CUENTA")
 else:
-  print ("No te desanimes te queda una oprotunidad")
+  print("Fallaste! Tu ex te empieza a enamorar pero tienes otro tiro, animo")
 
-if (distance_x == vx):
-  print ("Has ganado y tu ex jamas te molestará de nuevo")
-else:
-  print ("Ups tu ex a logrado conquistarte de nuevo.. AMIG@ DATE CUENTA")
+dogame(0)
+dogame(1)
+dogame(2)
