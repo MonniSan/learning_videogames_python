@@ -16,6 +16,14 @@ from os import system
 from time import sleep
 import random
 system ("clear")
+
+print("Hola amante de los perros y experto en bombas! Recuerda las siguiente intrucciones: \
+\n 1. Si la bomba es de tipo AB101 entonces los cables que hay que cortar son el rojo y el azul. \
+\n 2. Si la bomba es de tipo IU12 el cable rojo se debe cortar y el azul se debe mantener \
+\n 3. Si la bobmba es de tipo MAA089 el verde se debe conectar \
+\n al la terminal negra y el cable rojo a la amarilla \
+\n 4. Si la bomba es de tipo T78 solo hay que quitar la bateria ")
+
 #No hacer nada
 Normal = 0
 #Cortar 
