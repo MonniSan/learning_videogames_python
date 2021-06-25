@@ -120,8 +120,8 @@ class World:
     def getUselessHordes(self, hordes_list):
         return filter( self.getIsHordeUseless  , hordes_list)
 
-    def fight(self,creatureA, creatureB):
-        if near(creatureA, creatureB) < GB.APPROACH_DISTANCE:
+    def fight(self,creatureA, creatureB, forceFight=False):
+        if near(creatureA, creatureB) < GB.APPROACH_DISTANCE or forceFight:
             while( creatureA.getLife() > 0 and creatureB.getLife()  > 0):
     
                 cAh = creatureA.getHitForce()
@@ -130,7 +130,7 @@ class World:
                 creatureB.receiveHit(cAh)
                 
     def doHorde(self,creatureA, creatureB , horde_list , this_day_horde_list ):
-        if near(creatureA, creatureB) < GB.APPROACH_DISTANCE \
+        if near(creatureA, creatureB) < 2*GB.APPROACH_DISTANCE \
             and  \
             not creatureA in this_day_horde_list \
             and \
@@ -148,7 +148,42 @@ class World:
     def mergeHordes(self, hordeA, hordeB):
         if  near(hordeA, hordeB) < 2*GB.APPROACH_DISTANCE and not hordeA is hordeB:
             hordeA.mergeWithHorde(hordeB)
-            
+    
+    def fightTroll(self, horde, troll):
+        if  near(horde, troll) < 2*GB.APPROACH_DISTANCE:
+            horde.setAllDead()
+    
+        
+    
+    def fightHordes(self, hordeA, hordeB):
+        if  near(hordeA, hordeB) < 2*GB.APPROACH_DISTANCE and not hordeA is hordeB:
+            print(hordeA)
+            print(hordeB)
+            while( not hordeA.allDead() and not hordeB.allDead() ):
+                hA_members = hordeA.getMembers()
+                hB_members = hordeB.getMembers()
+                fights_list = []
+                longer = hA_members if len(hB_members) < len(hA_members) else hB_members
+                smaller = hB_members if len(hB_members) < len(hA_members) else hA_members
+                i = 0
+                for i in range(0, len(longer) ):
+                    fight = [ [smaller[i%len(smaller)]] , [longer[i]] ]
+                    if len(fights_list) < len(smaller):
+                        fights_list.append( fight )
+                    else:
+                        fights_list[i%len(smaller)][1].append(longer[i])
+                
+                for f in fights_list:
+                    oppA = f[0]
+                    oppB = f[1]
+                    if len(oppA) < len(oppB):
+                        oppA[0].receiveHit( oppA[0].getLife() )
+                    else:
+                        self.fight(oppA[0], oppB[0], forceFight = True)
+                
+                hordeA.cleanDead()
+                hordeB.cleanDead()
+    
     def killCreature(self, horde, creature):
         if( horde.nearHorde(creature , GB.APPROACH_DISTANCE) ):
             creature.setLife(0)        
@@ -224,9 +259,15 @@ class World:
                 self.killCreature(horde, elf)
             for friends in self.orc_hordes:
                 self.mergeHordes(horde, friends )
+            for orc in horde.getMembers():
+                for item in self.items:
+                    self.canTakeItem(orc, item)
+            for j in self.trolls:
+                self.fightTroll(horde, j)
         
         self.cleanse_list(   orcs_in_hordes   , self.orcs)
         self.cleanse_list(   list(self.getDeadCreatures(self.elves))   , self.elves)
+        self.cleanse_list(   list(self.getTakenItems(self.items))   , self.items)
 
         for horde in self.elf_hordes:
             horde.move(self.__width, self.__height)
@@ -236,9 +277,19 @@ class World:
                 self.killCreature(horde, orc)
             for friends in self.elf_hordes:
                 self.mergeHordes(horde, friends )
-                
+            for elf in horde.getMembers():
+                for item in self.items:
+                    self.canTakeItem(elf, item)
+            for j in self.trolls:
+                self.fightTroll(horde, j)
+    
         self.cleanse_list(   elves_in_hordes   , self.elves)
         self.cleanse_list(   list(self.getDeadCreatures(self.orcs))   , self.orcs)
+        self.cleanse_list(   list(self.getTakenItems(self.items))   , self.items)
+    
+        for elfs in self.elf_hordes:
+            for orcs in self.orc_hordes:
+                self.fightHordes(elfs, orcs)
 
 
         self.cleanse_list(   list(self.getUselessHordes(self.elf_hordes))   , self.elf_hordes)
