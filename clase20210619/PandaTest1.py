@@ -12,16 +12,19 @@ class FirstApp(ShowBase):
     base.messenger.toggleVerbose()
     self.taskMgr.add(self.setup, "setup")
     self.taskMgr.add(self.update,"update")
+    self.angle = 0
   
   def setup(self,task):
-    square = self.loader.loadModel("models/Square")
-    square.setPos(0,0,0)
-    square.reparent(self.render)
+    self.square = self.loader.loadModel("models/Square")
+    self.square.setPos(0,0,0)
+    self.square.reparentTo(self.render)
     return Task.done
   
   def update(self,task):
-    self.camara.setPos(40,40,0)
-    self.camara.lookAt(0,0,0)
+    self.camera.setPos(40,40,0)
+    self.camera.lookAt(0,0,0)
+    self.square.setHpr(self.angle,0,0)
+    self.angle += 1
     return Task.cont
 
 t = FirstApp()
