@@ -3,6 +3,7 @@ from direct.task import Task
 from panda3d.core import Point3
 from panda3d.core import loadPrcFileData
 from math import sin, cos
+from random import random
 
 loadPrcFileData(" " , "win-size 640 480")
 
@@ -26,11 +27,12 @@ class FirstApp(ShowBase):
     self.square.setTexture(texture)
     self.square.reparentTo(self.render)
 
-    self.square2 = self.loader.loadModel("models/Square")
-    self.square2.setPos(0,20,0)
-    self.square2.setTransparency(1)
-    self.square2.setTexture(texture)
-    self.square2.reparentTo(self.render)
+    for i in range(0,10):
+      square2 = self.loader.loadModel("models/Square")
+      square2.setPos(random()*20,random()*20,0)
+      square2.setTransparency(1)
+      square2.setTexture(texture)
+      square2.reparentTo(self.render)
 
     return Task.done
   
