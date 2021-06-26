@@ -12,6 +12,12 @@ class FirstApp(ShowBase):
     base.messenger.toggleVerbose()
     self.taskMgr.add(self.setup, "setup")
     self.taskMgr.add(self.update,"update")
+  
+  def setup(self,task):
+    return Task.done
+  
+  def update(self,task):
+    return Task.cont
 
 t = FirstApp()
 t.run()
