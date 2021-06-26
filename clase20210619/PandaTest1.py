@@ -26,6 +26,12 @@ class FirstApp(ShowBase):
     self.square.setTexture(texture)
     self.square.reparentTo(self.render)
 
+    self.square2 = self.loader.loadModel("models/Square")
+    self.square2.setPos(0,20,0)
+    self.square2.setTransparency(1)
+    self.square2.setTexture(texture)
+    self.square2.reparentTo(self.render)
+
     return Task.done
   
   def update(self,task):
