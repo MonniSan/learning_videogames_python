@@ -16,12 +16,15 @@ class FirstApp(ShowBase):
   
   def setup(self,task):
     self.square = self.loader.loadModel("models/Square")
+    texture = self.loader.loadTexture("models/logo_VGA.png")
     self.square.setPos(0,0,0)
+    self.square.setTransparency(1)
+    self.square.setTexture(texture)
     self.square.reparentTo(self.render)
     return Task.done
   
   def update(self,task):
-    self.camera.setPos(40,40,0)
+    self.camera.setPos(10,10,0)
     self.camera.lookAt(0,0,0)
     self.square.setHpr(self.angle,0,0)
     self.angle += 1
