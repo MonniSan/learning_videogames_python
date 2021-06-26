@@ -2,6 +2,7 @@ from direct.showbase.ShowBase import ShowBase
 from direct.task import Task
 from panda3d.core import Point3
 from panda3d.core import loadPrcFileData
+from math import sin, cos
 
 loadPrcFileData(" " , "win-size 640 480")
 
@@ -12,8 +13,10 @@ class FirstApp(ShowBase):
     base.messenger.toggleVerbose()
     self.taskMgr.add(self.setup, "setup")
     self.taskMgr.add(self.update,"update")
-    self.angle = 0
-  
+    #self.angle = 0
+    self.time = 0
+
+
   def setup(self,task):
     self.square = self.loader.loadModel("models/Square")
     texture = self.loader.loadTexture("models/logo_VGA.png")
@@ -24,10 +27,13 @@ class FirstApp(ShowBase):
     return Task.done
   
   def update(self,task):
-    self.camera.setPos(10,10,0)
+    self.time += 0.2
+    xp = sin(self.time)*10
+    yp = cos(self.time)*10
+    self.camera.setPos(xp,10,0)
     self.camera.lookAt(0,0,0)
-    self.square.setHpr(self.angle,0,0)
-    self.angle += 1
+    #self.square.setHpr(self.angle,0,0)
+    #self.angle += 1
     return Task.cont
 
 t = FirstApp()
