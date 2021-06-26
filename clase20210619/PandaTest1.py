@@ -14,9 +14,14 @@ class FirstApp(ShowBase):
     self.taskMgr.add(self.update,"update")
   
   def setup(self,task):
+    square = self.loader.loadModel("models/Square")
+    square.setPos(0,0,0)
+    square.reparent(self.render)
     return Task.done
   
   def update(self,task):
+    self.camara.setPos(40,40,0)
+    self.camara.lookAt(0,0,0)
     return Task.cont
 
 t = FirstApp()
