@@ -29,15 +29,16 @@ class FirstApp(ShowBase):
 
     for i in range(0,10):
       square2 = self.loader.loadModel("models/Square")
-      square2.setPos(random()*20,random()*20,0)
+      square2.setPos(random()*20-10,random()*20-10,0)
       square2.setTransparency(1)
       square2.setTexture(texture)
       square2.reparentTo(self.render)
 
     return Task.done
-  
+
+
   def update(self,task):
-    self.time += 0.1
+    self.time += 0.03
     xp = sin(self.time)*10
     yp = cos(self.time)*10
     self.camera.setPos(xp,yp,0)
