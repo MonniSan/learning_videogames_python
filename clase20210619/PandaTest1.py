@@ -27,9 +27,9 @@ class FirstApp(ShowBase):
     self.square.setTexture(texture)
     self.square.reparentTo(self.render)
 
-    for i in range(0,10):
+    for i in range(0,100):
       square2 = self.loader.loadModel("models/Square")
-      square2.setPos(random()*20-10,random()*20-10,0)
+      square2.setPos(random()*20-10,random()*20-10,random()*20-10)
       square2.setTransparency(1)
       square2.setTexture(texture)
       square2.reparentTo(self.render)
