@@ -3,15 +3,15 @@
 Battle for Middle Earth with orcs and elves.
 
 In this program, **Orcs** and **Elves** wiil have to <fight>. Orcs and Elves are **CREATURE**
-of a **\_WORLD** in the Middle Earth. They should be modeled as such. **Trolls** arre around an can <eat> any Creature.
+of a **WORLD** in the Middle Earth. They should be modeled as such. **Trolls** arre around an can <eat> any Creature.
 
-Orcs and Elves start around a world of 100^2 (logically) unit grid in which they can get together and start walking, as a _\_gurp of creatures_ called **\_HORD**. Two Creatures can't be occupying the same place at the same time (logically physical), so, when they are <moving>, be careful that the _\_position_ (x,y) the creature is heading to, doesn't have another creature already. They have a _\_speed_, too.
+Orcs and Elves start around a world of 100^2 (logically) unit grid in which they can get together and start walking, as a _gurp of creatures_ called **HORD**. Two Creatures can't be occupying the same place at the same time (logically physical), so, when they are <moving>, be careful that the _position_ (x,y) the creature is heading to, doesn't have another creature already. They have a _speed_, too.
 
 To determine if Orcs or Elves can <makeHorde>, the distance between them must be 5. Once they are a Horde, advancing is slower (average of all speds) and the future position must be in fuction of the centriod (x and y of the circule make for all).
 
-If an Orc and an Elf meet in the World, they will start a fight. If 2 hordes meet ech other, one orc will stand against one elf. If there are more creatures on one side, one of the guys on the other side will die. By the developer desition, if the struggle is 2 creatures in favor ore more in one side (3-1,5-2,7-5,6-2,...) the hordes with more creatures kill all. So, only when the difernce of the creatures in a horde is 1 can kill the one with minimum _\_life_ and strunggle 1-1.
+If an Orc and an Elf meet in the World, they will start a fight. If 2 hordes meet ech other, one orc will stand against one elf. If there are more creatures on one side, one of the guys on the other side will die. By the developer desition, if the struggle is 2 creatures in favor ore more in one side (3-1,5-2,7-5,6-2,...) the hordes with more creatures kill all. So, only when the difernce of the creatures in a horde is 1 can kill the one with minimum _life_ and strunggle 1-1.
 
-To fight, hech creature has a combination of _\_strength_ and _\_magic_ Elves have X2 on magic and orcs have X3 on strength. These specs are determined upon creature birth, and are random according to the following rules:
+To fight, hech creature has a combination of _strength_ and _magic_ Elves have X2 on magic and orcs have X3 on strength. These specs are determined upon creature birth, and are random according to the following rules:
 
 # Orc
 

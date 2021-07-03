@@ -98,6 +98,7 @@ class Creature:
     def __str__(self):
         return f'x:{self.getPx()} y:{self.getPy()} sx:{self.getSx()} sy:{self.getSy()} \
         st:{self.getStrength()} mg:{self.getMagic()} l:{self.getLife()} ml:{self.getMaxLife()}'
+
 if __name__ == "__main__":
     c = Creature(10,10,1)
     print(c)
