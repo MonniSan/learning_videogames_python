@@ -24,15 +24,15 @@ class Creature:
     self.__life = 0
     self.__percent_strength = 0 
     self.__percent_magic = 0
-    self.changeDirection(max_speed) #max_speed se usa para sacar hipotenusa
+    self.changeDirection(max_speed) #max_speed para obtener vector
 
-  #posición inicial, cambia cada movimiento. 
+  #posición inicial, luego cambia con cada movimiento. 
   def getPx(self):
     return self.__px
   def getPy(self):
     return self.__py
 
-  #velocidad = hipotenusa
+  #velocidad, marca cuantos "cuadros" se movió
   def getSx(self):
     return self.__sx
   def getSy(self):
@@ -71,8 +71,8 @@ class Creature:
 
   #Dirección de movimiento (viene lo bueno... notas en el cuaderno)
   def changeDirection(self, max_speed):
-    max_speed = max(max_speed, Creature.MIN_SPEED) #por si la velocidad sale menor a 2
-    random_speed = int(random()*(max_speed-Creature.MIN_SPEED) + Creature.MIN_SPEED) #hipotenusa
+    max_speed = max(max_speed, Creature.MIN_SPEED) #no puede ser menor de 2
+    random_speed = int(random()*(max_speed-Creature.MIN_SPEED) + Creature.MIN_SPEED) #obtiene vector (hipotenusa)
 #random_angle = 2*pi*random = 2*3.14159*random (en mi consola, no se como poner PI grados)
 # PI = 180º => random_angle = 2*pi*random = 2*180*random
 # 2*180º = 360º => random_angle = 360*random (la solución que se me occurrió)
@@ -138,6 +138,7 @@ class Creature:
       \n Position:(x,y) = ({self.getPx()},{self.getPy()})      Strength: {self.getStrength()} --- Magic: {self.getMagic()}\
       \n Speed: (sx,sy) = ({self.getSx()},{self.getSy()})      Life of Maxim Life: {self.getLife()} of {self.getLife()}"
 
+#Creando creatura
 if __name__ == "__main__":
     c = Creature(10,10,1)
     print(c)
@@ -151,5 +152,3 @@ if __name__ == "__main__":
   Vamos a definir la clase hija Orcos
 ****************************************
 """
-
-
