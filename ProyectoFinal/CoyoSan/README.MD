@@ -71,11 +71,11 @@ _DOGE block_
 
 Are bugs in the decentralized world where blockchains receives wrong instructions. When people send a cryptocurrency from their wallet to a wallet that have diferent type of cryptocurrency, the transaction doesn't get in any blockchain, going into a block that mutate in powers. Coyo San can use them to mine more cryptos at that time. There are 5 types of bugs, and each one give a diferent power to the ledger bullests.
 
-_Vertical Minnig Pool_ Distroy all crypto blocks in the same line.
-_Horizontal Minning Pool_ Distroy all crypto blocks in the same floor.
-_Cross Minning Pool_ Distroy all crypto blocks in the same line and floor.
-_Ledger Bullet_ Add an extra ledger bullet to Coyo San.
-_Double Crush_ Make ledger bullets mine 2 cryptos at ones, in the next turn.
+**VertocalMP: _Vertical Minnig Pool_** Distroy all crypto blocks in the same line.
+**HorizontalMP: _Horizontal Minning Pool_** Distroy all crypto blocks in the same floor.
+**CrossMP: _Cross Minning Pool_** Distroy all crypto blocks in the same line and floor.
+**ExtraLP: _Extra Ledger Bullet_** Add an extra ledger bullet to Coyo San.
+**DoubleCrush: _Double Crush_** Make ledger bullets mine 2 cryptos at ones, in the next turn.
 
 ---
 
@@ -85,4 +85,4 @@ _Double Crush_ Make ledger bullets mine 2 cryptos at ones, in the next turn.
 
 Are cute minning machines, that can mine the cryptos out of the blocks and save them in each cold wallet. Coyo start the game with 50 ledgers bullets, when one ledger bullet cruch a random power blocks can get an extra bullet, can change in to a minning pool machine, and collet double cryptos at ones.
 
-**/// \*** /// **_ /// HELP COYO LEARN CRYPTO AND HAVE FUN /// _** /// **\* ///**
+**/// ** /// **_ /// HELP COYO LEARN CRYPTO AND HAVE FUN /// _** /// ** ///**
