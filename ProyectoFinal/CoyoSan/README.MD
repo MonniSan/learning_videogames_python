@@ -86,3 +86,5 @@ Are bugs in the decentralized world where blockchains receives wrong instruction
 Are cute minning machines, that can mine the cryptos out of the blocks and save them in each cold wallet. Coyo start the game with 50 ledgers bullets, when one ledger bullet cruch a random power blocks can get an extra bullet, can change in to a minning pool machine, and collet double cryptos at ones.
 
 **/// ** /// **_ /// HELP COYO LEARN CRYPTO AND HAVE FUN /// _** /// ** ///**
+
+Nota: Si se complica el codigo a programar podemos ingnorar las siguiente instrucciones: Coyo San Moods, Incremento de cryptos en bloques, poder double crush.

@@ -3,7 +3,7 @@ from CrytoBlock import UsdtBlock, BtcBlock, EthBlock, DogeBlock
 from CoyoSan import CoyoSan
 from LedgerBullet import LedgerBullet
 from panda3d import *
-from math import sqrt
+from math import sqrt, cos, sin
 from random import random
 
 #Clase Padre
@@ -59,7 +59,6 @@ class DescentralWorld:
       VerticalMP(
         getRandomBetween(2,floors)
         getRandomBetween(0,lines)
-        getRandomBetwen(MinCryptos, MaxCryptos)
       )
     )
 
@@ -68,7 +67,6 @@ class DescentralWorld:
       HorizontalMP(
         getRandomBetween(2,floors)
         getRandomBetween(0,lines)
-        getRandomBetwen(MinCryptos, MaxCryptos)
       )
     )
 
@@ -77,7 +75,6 @@ class DescentralWorld:
       CrossMP(
         getRandomBetween(2,floors)
         getRandomBetween(0,lines)
-        getRandomBetwen(MinCryptos, MaxCryptos)
       )
     )
 
@@ -86,7 +83,6 @@ class DescentralWorld:
       ExtraLB(
         getRandomBetween(2,floors)
         getRandomBetween(0,lines)
-        getRandomBetwen(MinCryptos, MaxCryptos)
       )
     )
 
@@ -95,6 +91,5 @@ class DescentralWorld:
       DoubleCrush(
         getRandomBetween(2,floors)
         getRandomBetween(0,lines)
-        getRandomBetwen(MinCryptos, MaxCryptos)
       )
     )
